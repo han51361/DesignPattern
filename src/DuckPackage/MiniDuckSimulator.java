@@ -1,3 +1,6 @@
+package DuckPackage;
+
+
 import fly.FlyRocketPowered;
 
 public class MiniDuckSimulator {
@@ -17,3 +20,8 @@ public class MiniDuckSimulator {
 
     }
 }
+
+
+
+
+

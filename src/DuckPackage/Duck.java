@@ -1,3 +1,5 @@
+package DuckPackage;
+
 import fly.FlyBehavior;
 
 public abstract class Duck {
