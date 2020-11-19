@@ -2,17 +2,17 @@ package Observer.display;
 import Observer.Subject;
 import Observer.Observer;
 
-public class CurrentConditions implements Observer, DisplayElment{
+public class CurrentConditionsDisplay implements Observer, DisplayElment{
 
     private float temperature;
     private float humidity;
     private float pressure;
     private Subject weatherData;
 
-    public CurrentConditions(Subject weatherData) {
+    public CurrentConditionsDisplay(Subject weatherData) {
         // 생성자에 weatherdata라는 주제 객체가 전달되어 그 객체를 써서 디스플레이를 옵저버로 등
         this.weatherData = weatherData;
-        weatherData.registerObserver((java.util.Observer) this);
+        weatherData.registerObserver( this);
     }
 
 

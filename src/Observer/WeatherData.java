@@ -48,15 +48,9 @@ public class WeatherData implements Subject{
         }
     }
 
-    @Override
-    public void registerObserver(java.util.Observer o) {
 
-    }
 
-    @Override
-    public void removeObserver(java.util.Observer o) {
 
-    }
 
     @Override
     public void notifyObservers() {
@@ -71,19 +65,15 @@ public class WeatherData implements Subject{
     public void measurementsChanged(){
         //기상 관측값이 갱신 될 때마다 알려주기 위한 메소드
         // weather data 의 게터메소드를 써서 최신 측정값을 가져온다.
-
-
-
-
+    notifyObservers();
     }
 
-//    private float getPressure() {
-//    }
-//
-//    private float getHumidity() {
-//    }
-//
-//    private float getTemperature() {
-//    }
+    public void setMeasurements(float temp, float humidity, float pressure ){
+        this.temperature = temp;
+        this.humidity = humidity;
+        this.pressure = pressure;
+        measurementsChanged();
+    }
+
 
 }
