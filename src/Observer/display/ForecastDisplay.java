@@ -2,6 +2,7 @@ package Observer.display;
 import Observer.Subject;
 import Observer.Observer;
 
+import java.util.Observable;
 
 
 public class ForecastDisplay implements Observer, DisplayElment {

@@ -2,7 +2,9 @@ package Observer.display;
 import Observer.Subject;
 import Observer.Observer;
 
-public class CurrentConditionsDisplay implements Observer, DisplayElment{
+import java.util.Observable;
+
+public class CurrentConditionsDisplay  implements Observer,DisplayElment{
 
     private float temperature;
     private float humidity;

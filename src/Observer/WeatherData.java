@@ -9,9 +9,10 @@ package Observer;
 */
 
 import java.util.ArrayList;
+import java.util.Observable;
 
 
-public class WeatherData implements Subject{
+public class WeatherData extends Observable implements Subject {
 // weatherdata 에서 subject 인터페이스를 구현
 
     //인스턴스 변수 선언
@@ -26,7 +27,7 @@ public class WeatherData implements Subject{
 //    getPressure();
 
     public WeatherData() {
-        this.observers = new ArrayList();
+        //이제 생성자에서 옵저버들을 저장하기 위한 자료 구조를 만들 필요가 없다.
     }
 
 
@@ -56,16 +57,21 @@ public class WeatherData implements Subject{
     public void notifyObservers() {
             // 상태에 대하여 옵저버들에게 알려주는 부분
         // 두 옵저버 인터페이스를 구현하는, 즉 update() 메소드가 잇는 객체들이므로 쉽게 알려줄 수 있다.
+        //호출할 때 데이터 객체를 보내지 않는다. 여기에서는 물 모델을 사용하고 있다는 뜻.
         for(int i =0;i <observers.size();i++){
             Observer observer = (Observer)observers.get(i);
             observer.update(temperature,humidity,pressure);
         }
     }
 
+
+
+
     public void measurementsChanged(){
         //기상 관측값이 갱신 될 때마다 알려주기 위한 메소드
         // weather data 의 게터메소드를 써서 최신 측정값을 가져온다.
-    notifyObservers();
+        setChanged(); //이번에는 notifyobserver를 호출하기 전에 setchange()를 호출해서 상태가 바뀌었다.
+        notifyObservers();
     }
 
     public void setMeasurements(float temp, float humidity, float pressure ){
@@ -73,6 +79,16 @@ public class WeatherData implements Subject{
         this.humidity = humidity;
         this.pressure = pressure;
         measurementsChanged();
+    }
+
+    public float getTemperature(){
+        return temperature;
+    }
+    public float getHumidity(){
+        return humidity;
+    }
+    public float getPressure(){
+        return pressure;
     }
 
 
