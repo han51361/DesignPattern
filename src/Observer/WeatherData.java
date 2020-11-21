@@ -7,16 +7,16 @@ package Observer;
 한 객체의 상태가 변경되면 그 객체에 의존하는 모든 객체에 연락 간다.
 
 */
-
+import java.util.Observer;
 import java.util.ArrayList;
 import java.util.Observable;
 
 
-public class WeatherData extends Observable implements Subject {
+public class WeatherData extends Observable  {
 // weatherdata 에서 subject 인터페이스를 구현
 
     //인스턴스 변수 선언
-    private ArrayList observers; // observer 객체들을 저장하기 위해
+    private ArrayList<Observer> observers; // observer 객체들을 저장하기 위해
     private float temperature;
     private float humidity;
     private float pressure;
@@ -36,9 +36,6 @@ public class WeatherData extends Observable implements Subject {
 
 
 
-    public void registerObserver(Observer o) {
-        observers.add(o); //옵저버 추가시 목록 맨뒤로 추가
-    }
 
 
     public void removeObserver(Observer o) {
@@ -52,17 +49,6 @@ public class WeatherData extends Observable implements Subject {
 
 
 
-
-    @Override
-    public void notifyObservers() {
-            // 상태에 대하여 옵저버들에게 알려주는 부분
-        // 두 옵저버 인터페이스를 구현하는, 즉 update() 메소드가 잇는 객체들이므로 쉽게 알려줄 수 있다.
-        //호출할 때 데이터 객체를 보내지 않는다. 여기에서는 물 모델을 사용하고 있다는 뜻.
-        for(int i =0;i <observers.size();i++){
-            Observer observer = (Observer)observers.get(i);
-            observer.update(temperature,humidity,pressure);
-        }
-    }
 
 
 

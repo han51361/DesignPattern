@@ -1,31 +1,35 @@
 package Observer.display;
-import Observer.Subject;
 import Observer.Observer;
-
+import Observer.WeatherData;
 import java.util.Observable;
 
-public class CurrentConditionsDisplay  implements Observer,DisplayElment{
+public class CurrentConditionsDisplay implements Observer, DisplayElment, java.util.Observer {
 
     private float temperature;
     private float humidity;
     private float pressure;
-    private Subject weatherData;
-
-    public CurrentConditionsDisplay(Subject weatherData) {
+    Observable observable;
+    public CurrentConditionsDisplay(Observable observable) {
         // 생성자에 weatherdata라는 주제 객체가 전달되어 그 객체를 써서 디스플레이를 옵저버로 등
-        this.weatherData = weatherData;
-        weatherData.registerObserver( this);
+        this.observable = observable;
+        observable.addObserver( this);
     }
 
 
-    public void update(float temp, float humidity, float pressure) {
-        this.temperature =temp;
-        this.humidity = humidity;
-        display();
-    }
+
     //이 디스플레이 항목에서는 weatherdata 객체로부터 얻은 현재 측정값들을 보여준다.
     public void display(){
         //현재 측정값을 화면에 표시
         System.out.println("Current Condition : "+ temperature + "F degree : "+ humidity + "% humidity");
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        if(o instanceof WeatherData){
+            WeatherData weatherData = (WeatherData) o;
+            this.temperature = weatherData.getTemperature();
+            this.humidity = weatherData.getHumidity();
+            display();
+        }
     }
 }
