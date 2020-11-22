@@ -3,7 +3,7 @@ package Decorate;
 public abstract class Beverage {
     String description = "제목 없음";
     String size;
-    int cost;
+    double cost;
     public String getDescription() {
         return description;
     }

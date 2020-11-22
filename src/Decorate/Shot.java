@@ -6,7 +6,7 @@ public class Shot extends CondimentDecorator{
     public Shot(Beverage beverage) {
         this.beverage = beverage;
         this.size = beverage.size;
-        this.cost = beverage.cost;
+        this.cost = beverage.cost();
     }
 
     @Override
@@ -16,7 +16,7 @@ public class Shot extends CondimentDecorator{
 
     @Override
     public double cost() {
-        return beverage.cost() + 1000;
+        return this.cost + 1000;
     }
 
     @Override

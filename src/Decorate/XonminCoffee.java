@@ -18,7 +18,6 @@ public class XonminCoffee {
         switch (num){
             case 1 :
                 int a;
-
                 Beverage beverage = new ColdBrew();
                 beverage.setSize(size);
                 System.out.println("샷 추가해드려?");
@@ -41,10 +40,12 @@ public class XonminCoffee {
                 System.out.println("Yes: 1 , No : 2");
                 a = sc.nextInt();
                 if(a == 1){
-                    beverage = new Shot(beverage2);
+                    beverage2 = new Shot(beverage2);
+
                     System.out.println(beverage2.getDescription()+":"+beverage2.cost()+"원이여");
                 }else if(a ==2){
-                    System.out.println(beverage2.getDescription() + beverage2.cost()+"원이여");
+                    beverage2.cost();
+                    System.out.println(beverage2.getDescription() + beverage2.cost+"원이여");
                 }
                 System.out.println("맛나게 묵어요");
                 break;

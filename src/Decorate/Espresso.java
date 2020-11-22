@@ -10,12 +10,14 @@ public class Espresso extends Beverage{
     @Override
     public double cost() {
 
-        if(getSize() == "tall"){
+        if(getSize().equals("tall")){
             return cost;
-        }else if(getSize() == "grande"){
+        }else if(getSize().equals("grande")){
             cost += 500;
-        }else if(getSize() == "venti"){
+        }else if(getSize().equals("venti")){
+
             cost +=1000;
+
         }
         return cost;
     }
