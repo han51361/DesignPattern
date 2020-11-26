@@ -12,6 +12,7 @@ public class NYPizzaFactory {
         Pizza pizza = null;
         if (type.equals("cheese")) {
             pizza = new NYStyleCheesePizza();
+
         } else if (type.equals("peperoni")) {
             pizza = new NYStylePeperoni();
         } else if (type.equals("gorgonzola")) {

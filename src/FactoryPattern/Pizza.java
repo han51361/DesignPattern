@@ -2,13 +2,13 @@ package FactoryPattern;
 import java.util.ArrayList;
 
 public abstract class Pizza {
-  String name;
-  Dough dough;
-  Sauce sauce;
+  public String name;
+  public Dough dough;
+  public Sauce sauce;
   Veggies veggies[];
-  Cheese cheese;
+  public Cheese cheese;
   Pepperoni pepperoni;
-  Clams clam;
+  public Clams clam;
 
 
   public ArrayList toppings = new ArrayList();
@@ -30,4 +30,7 @@ public abstract class Pizza {
         return name;
     }
 
+  public  void setName(String name){
+      this.name = name;
+  };
 }
