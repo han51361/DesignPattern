@@ -2,9 +2,15 @@ package FactoryPattern;
 import java.util.ArrayList;
 
 public abstract class Pizza {
-  public String name;
-  public String dough;
-  public String sauce;
+  String name;
+  Dough dough;
+  Sauce sauce;
+  Veggies veggies[];
+  Cheese cheese;
+  Pepperoni pepperoni;
+  Clams clam;
+
+
   public ArrayList toppings = new ArrayList();
 
 
