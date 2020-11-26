@@ -14,15 +14,8 @@ public abstract class Pizza {
   public ArrayList toppings = new ArrayList();
 
 
-    public void prepare(){
-        System.out.println("Preparing :"+ name);
-        System.out.println("Tossing dough");
-        System.out.println("Adding sauce");
-        System.out.println("Adding topping : ");
-        for(int i =0; i<toppings.size();i++){
-            System.out.println("    "+ toppings.get(i));
-        }
-    }
+    public abstract void prepare();
+
     public void bake(){
         System.out.println("Bake for 25 min at 350");
     }
